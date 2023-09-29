@@ -1,25 +1,54 @@
-import logo from './logo.svg';
-import './App.css';
+import { Switch, Route } from 'react-router-dom';
+import Header from './components/Header';
+import Footer from './components/Footer';
+import Main from './pages/Main';
+
+import Nosotros from './components/Nosotros';
+import './assets/css/style.css';
+
+import MiCuenta from './components/Micuenta';
+import Registro from './components/Registro'
+import Contact from './components/Contact';
+import Gracias from './components/Gracias'
+import Detail from './pages/Detail'
+
+
+
+
+
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <>
+    <Header />
+    <Switch>
+   
+    <Route path="/Micuenta" component={MiCuenta} />
+    <Route path="/Registro" component={Registro} />
+    <Route path="/contacto" component={Contact} />
+    <Route path="/gracias" component={Gracias} />
+    <Route path="/detail/:id" component={Detail} />
+     
+
+  
+          
+     
+     <Route exact path="/" component={Main}/>
+     
+
+
+    </Switch>
+    <Main />
+    <Nosotros />
+   
+    
+    <Footer/>
+   
+    
+    </>
+    
+    );
 }
 
 export default App;
